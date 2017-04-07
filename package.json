@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"tesseract.js",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "tesseract.js",
+    "description": "api documentation for [tesseract.js (v1.0.10)](https://github.com/naptha/tesseract.js) [![npm package](https://img.shields.io/npm/v/npmdoc-tesseract.js.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-tesseract.js) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-tesseract.js.svg)](https://travis-ci.org/npmdoc/node-npmdoc-tesseract.js)",
     "devDependencies": {
-        "tesseract.js": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "tesseract.js": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-tesseract.js",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-tesseract.js",
+    "keywords": [
+        "documentation",
+        "tesseract.js"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_tesseract.js.js",
+    "name": "npmdoc-tesseract.js",
+    "nameAlias": "npmdoc_tesseract_js",
+    "nameOriginal": "npmdoc-tesseract.js",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-tesseract.js"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
